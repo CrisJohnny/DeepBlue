@@ -1,0 +1,140 @@
+登录
+修改密码
+分类
+	添加分类
+	删除分类
+	修改分类
+
+把一部小说从一个分类移动另一个
+
+类别搜索
+
+关键字搜索 作者姓名 小说名 某个主题词 点击率排列 
+
+显示小说的基本信息
+
+作者信息，主要角色 封面 简单介绍
+
+user
+
+id name password
+
+
+create table user
+(
+id integer primary key auto_increment,
+name varchar(32),
+password varchar(32)
+);
+
+
+novellist
+
+bid bookname type author key click 
+
+
+create table novellist
+(
+bid integer primary key auto_increment,
+bookname char(32),
+type varchar(10),
+click smallint,
+key nvarchar(64)
+);
+
+
+novelinfor
+
+bid role
+ cover
+ introduce
+
+
+create table novellist
+(
+bid integer primary key auto_increment,
+author varchar(32),
+bookname char(32),
+typeid int,
+click smallint,
+main nvarchar(64)
+);
+
+
+create table novelinfor
+(
+id integer primary key auto_increment,
+bid integer,
+role varchar(32),
+cover varchar(125),
+introduce text
+);
+
+authorinfor
+
+id author area sex book
+
+
+create table authorinfor
+(
+id integer primary key auto_increment,
+bid integer,
+author varchar(32),
+area varchar(32),
+sex char(2),
+book
+ varchar(125)
+);
+
+update user set password='11111' where name='123';
+
+type
+
+create table type
+(
+typeid integer primary key auto_increment,
+type varchar(10)
+);
+
+insert into novellist (author,bookname,typeid,click,main) values ('薪越','民国大文豪',5,100,"民国");
+insert into novellist (author,bookname,typeid,click,main) values ('幸运的苏拉','鹰扬拜占庭',5,1000,"国外");
+insert into novellist (author,bookname,typeid,click,main) values ('面对面无语','三国全面战争系统',5,1300,"三国");
+
+insert into novellist (author,bookname,typeid,click,main) values ('就叫小新','超级足球巨星',6,1001,"足球");
+insert into novellist (author,bookname,typeid,click,main) values ('静物JW','篮球皇帝',6,1521,"篮球");
+insert into novellist (author,bookname,typeid,click,main) values ('Lee54','冰上舞者',6,1021,"花样滑冰");
+
+insert into novellist (author,bookname,typeid,click,main) values ('旻音','黑塔利亚同人之半月',7,1621,"黑塔利亚");
+insert into novellist (author,bookname,typeid,click,main) values ('港湾栖姬','刀剑神域同人',7,1051,"刀剑神域");
+insert into novellist (author,bookname,typeid,click,main) values ('诡道荒行','东方无言说',7,1021,"东方,绯想天");
+
+insert into novellist (author,bookname,typeid,click,main) values ('驴子街','笑驴外传',8,1321,"搞笑");
+insert into novellist (author,bookname,typeid,click,main) values ('本喵','进击的喵特勒',8,1321,"萌宠");
+insert into novellist (author,bookname,typeid,click,main) values ('TOWN','怪盗飞天猫',8,1321,"萌宠");
+
+insert into novelinfor (bid,role,cover,author,bookname,typeid,click,main) values ('薪越','民国大文豪',5,100,"民国");
+
+军事
+竞技
+同人
+幻想
+
+insert into novelinfor (bid,role,cover,introduce) values (13,'林越','img/13mgdyh.jpg','　　穿越到民国，成为大文豪。
+  中西方文化的碰撞，传统和新潮思想的交锋，海派和京派的争斗，十里洋场，纸醉金迷。
+  这是最好的时代，也是最坏的时代。');
+
+insert into novelinfor (bid,role,cover,introduce) values (14,'高文','img/14bzt.jpg','　　在现世里失去一切的大亨高文，又如何在中世纪世界里，用剑、勇气打拼，赢得更大的荣誉和权势？挡在他前面的，有彪悍狂热的突厥武士，有凶残狡诈的诺曼匪徒，有仗剑远征的十字军骑士，有尔虞我诈的东罗马宫廷。');
+
+insert into novelinfor (bid,role,cover,introduce) values (15,'三国游戏迷刘猛','img/15sg.jpg','　　刘猛，一个拥有成为统帅梦想的三国游戏迷，他能在英雄辈出的三国时代做到哪一步？');
+
+insert into novelinfor (bid,role,cover,introduce) values (16,'李风','img/16cjzq.jpg','这是一个2015年的普通屌丝带着足球系统来到2008年的夏天的故事
+    这一年一名叫李风中国青年正式登陆欧洲
+    欧洲足坛因此改变
+    梅西，C罗双雄争霸，“噢~~不，我李风将打破这一局面”
+    且看李风如何舞动风云，成为世界级的超级球星
+');
+
+insert into authorinfor (bid,author,area,sex,book) values (13,'薪越','中国上海','男','《伪装》《民国大文豪》');
+insert into authorinfor (bid,author,area,sex,book) values (14,'幸运的苏拉','中国河南','男','《帝国覆灭》《拜占庭》');
+insert into authorinfor (bid,author,area,sex,book) values (15,'面对面无语','中国内蒙古','男','《三国全面战争系统》《退走华容道》');
+insert into authorinfor (bid,author,area,sex,book) values (16,'就叫小新','中国江苏','男','《绿茵上的奔跑》《超级足球巨星》');
